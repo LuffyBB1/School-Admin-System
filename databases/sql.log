@@ -1,0 +1,827 @@
+timestamp: 2024-02-29T15:33:42.264111
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512)
+);
+success!
+timestamp: 2024-02-29T15:33:42.301073
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T15:33:42.318732
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2024-02-29T15:33:42.333964
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2024-02-29T15:33:42.349553
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T15:33:42.364641
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2024-02-29T17:50:53.191807
+CREATE TABLE "Salon"(
+    "id_salon" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "cod_salon" CHAR(512)
+);
+success!
+timestamp: 2024-02-29T18:06:55.617343
+CREATE TABLE "auth_user"(
+    "id" SERIAL PRIMARY KEY,
+    "first_name" VARCHAR(128),
+    "last_name" VARCHAR(128),
+    "email" VARCHAR(512),
+    "password" VARCHAR(512),
+    "registration_key" VARCHAR(512),
+    "reset_password_key" VARCHAR(512),
+    "registration_id" VARCHAR(512)
+);
+success!
+timestamp: 2024-02-29T18:06:55.831561
+CREATE TABLE "auth_group"(
+    "id" SERIAL PRIMARY KEY,
+    "role" VARCHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T18:06:56.104075
+CREATE TABLE "auth_membership"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2024-02-29T18:06:56.380049
+CREATE TABLE "auth_permission"(
+    "id" SERIAL PRIMARY KEY,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "name" VARCHAR(512),
+    "table_name" VARCHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2024-02-29T18:06:56.654023
+CREATE TABLE "auth_event"(
+    "id" SERIAL PRIMARY KEY,
+    "time_stamp" TIMESTAMP,
+    "client_ip" VARCHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "origin" VARCHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T18:06:56.930799
+CREATE TABLE "auth_cas"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" VARCHAR(512),
+    "ticket" VARCHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2024-02-29T18:40:04.775171
+CREATE TABLE "auth_user"(
+    "id" SERIAL PRIMARY KEY,
+    "first_name" VARCHAR(128),
+    "last_name" VARCHAR(128),
+    "email" VARCHAR(512),
+    "password" VARCHAR(512),
+    "registration_key" VARCHAR(512),
+    "reset_password_key" VARCHAR(512),
+    "registration_id" VARCHAR(512)
+);
+success!
+timestamp: 2024-02-29T18:40:04.963223
+CREATE TABLE "auth_group"(
+    "id" SERIAL PRIMARY KEY,
+    "role" VARCHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T18:40:05.236676
+CREATE TABLE "auth_membership"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2024-02-29T18:40:05.510072
+CREATE TABLE "auth_permission"(
+    "id" SERIAL PRIMARY KEY,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "name" VARCHAR(512),
+    "table_name" VARCHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2024-02-29T18:40:05.785860
+CREATE TABLE "auth_event"(
+    "id" SERIAL PRIMARY KEY,
+    "time_stamp" TIMESTAMP,
+    "client_ip" VARCHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "origin" VARCHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T18:40:06.061033
+CREATE TABLE "auth_cas"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" VARCHAR(512),
+    "ticket" VARCHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2024-02-29T19:13:59.540977
+CREATE TABLE "auth_user"(
+    "id" SERIAL PRIMARY KEY,
+    "first_name" VARCHAR(128),
+    "last_name" VARCHAR(128),
+    "email" VARCHAR(512),
+    "password" VARCHAR(512),
+    "registration_key" VARCHAR(512),
+    "reset_password_key" VARCHAR(512),
+    "registration_id" VARCHAR(512)
+);
+success!
+timestamp: 2024-02-29T19:13:59.732056
+CREATE TABLE "auth_group"(
+    "id" SERIAL PRIMARY KEY,
+    "role" VARCHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T19:14:00.004986
+CREATE TABLE "auth_membership"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2024-02-29T19:14:00.276793
+CREATE TABLE "auth_permission"(
+    "id" SERIAL PRIMARY KEY,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "name" VARCHAR(512),
+    "table_name" VARCHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2024-02-29T19:14:00.553664
+CREATE TABLE "auth_event"(
+    "id" SERIAL PRIMARY KEY,
+    "time_stamp" TIMESTAMP,
+    "client_ip" VARCHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "origin" VARCHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T19:14:00.829033
+CREATE TABLE "auth_cas"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" VARCHAR(512),
+    "ticket" VARCHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2024-02-29T19:14:01.104775
+CREATE TABLE "Salon"(
+    "cod_salon" VARCHAR(512) NOT NULL UNIQUE,
+    PRIMARY KEY("cod_salon")) ;
+success!
+timestamp: 2024-02-29T19:14:50.082703
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:15:04.195772
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:15:29.368582
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:16:12.314156
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:17:12.504947
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:17:58.416596
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:18:43.273374
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:20:08.696177
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:23:51.723089
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:24:51.653381
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:25:09.841192
+ALTER TABLE "Salon" ADD "id" SERIAL PRIMARY KEY;
+timestamp: 2024-02-29T19:25:27.551581
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:25:52.485702
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:26:52.492446
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:27:00.958977
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:27:52.529959
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:28:01.526227
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:28:52.543891
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:29:01.627270
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:29:52.496708
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:30:01.496791
+CREATE TABLE "Asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_Asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "Estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_Asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "Salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:30:57.966485
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:31:01.503348
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:31:50.510654
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:31:54.027093
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:32:01.486058
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:33:00.896849
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:36:34.727041
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:37:01.496737
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:37:30.526448
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:37:50.517879
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:38:01.544518
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:38:59.224450
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:39:01.519287
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:39:33.789905
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:39:51.638894
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:40:01.481766
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:43:12.875407
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:43:29.949379
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:43:55.374736
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:43:59.498917
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+success!
+timestamp: 2024-02-29T19:45:05.840578
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" SERIAL PRIMARY KEY,
+    "cod_salon" SERIAL PRIMARY KEY, CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T19:46:06.397150
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:46:13.271818
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:46:27.792884
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:47:06.474341
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:48:06.484439
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:48:26.145133
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:52:05.422460
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:52:09.571180
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:54:18.351961
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:54:37.177846
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:55:49.805473
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:55:53.985340
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T19:56:01.467847
+ALTER TABLE "salon" ADD "cod_salon__tmp" VARCHAR(512) NOT NULL UNIQUE;
+timestamp: 2024-02-29T20:01:45.728609
+CREATE TABLE "auth_user"(
+    "id" SERIAL PRIMARY KEY,
+    "first_name" VARCHAR(128),
+    "last_name" VARCHAR(128),
+    "email" VARCHAR(512),
+    "password" VARCHAR(512),
+    "registration_key" VARCHAR(512),
+    "reset_password_key" VARCHAR(512),
+    "registration_id" VARCHAR(512)
+);
+success!
+timestamp: 2024-02-29T20:01:45.912126
+CREATE TABLE "auth_group"(
+    "id" SERIAL PRIMARY KEY,
+    "role" VARCHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T20:01:46.178372
+CREATE TABLE "auth_membership"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  
+);
+success!
+timestamp: 2024-02-29T20:01:46.443302
+CREATE TABLE "auth_permission"(
+    "id" SERIAL PRIMARY KEY,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "name" VARCHAR(512),
+    "table_name" VARCHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2024-02-29T20:01:46.711498
+CREATE TABLE "auth_event"(
+    "id" SERIAL PRIMARY KEY,
+    "time_stamp" TIMESTAMP,
+    "client_ip" VARCHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "origin" VARCHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2024-02-29T20:01:46.979524
+CREATE TABLE "auth_cas"(
+    "id" SERIAL PRIMARY KEY,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE ON UPDATE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" VARCHAR(512),
+    "ticket" VARCHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2024-02-29T20:01:47.249374
+CREATE TABLE "salon"(
+    "cod_salon" VARCHAR(512) NOT NULL UNIQUE,
+    PRIMARY KEY("cod_salon")) ;
+success!
+timestamp: 2024-02-29T20:01:47.516717
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T20:01:59.632056
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T20:03:38.327253
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T20:03:40.628529
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T20:04:00.585833
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T20:04:11.344643
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T20:05:11.270582
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+timestamp: 2024-02-29T20:05:34.969514
+CREATE TABLE "asistencia"(
+    "id_asistencia" INTEGER NOT NULL UNIQUE,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY("id_asistencia")) ;
+timestamp: 2024-02-29T20:10:12.855472
+ALTER TABLE "salon" ADD "id" INTEGER;
+success!
+timestamp: 2024-02-29T20:13:22.734124
+CREATE TABLE "estudiante"(
+    "documento" INTEGER NOT NULL UNIQUE,
+    "nombre" VARCHAR(512) NOT NULL,
+    "apellido" VARCHAR(512) NOT NULL,
+    "edad" INTEGER NOT NULL,
+    "fecha_nacimiento" DATE NOT NULL,
+    "jornada" VARCHAR(512) NOT NULL,
+    "salon_id" VARCHAR(512), CONSTRAINT  "FK_estudiante_salon_id__constraint" FOREIGN KEY ("salon_id") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE,
+    PRIMARY KEY("documento")) ;
+success!
+timestamp: 2024-02-29T20:14:22.354763
+CREATE TABLE "asistencia"(
+    "id_asistencia" SERIAL PRIMARY KEY,
+    "asiste" CHAR(1),
+    "ausente" CHAR(1),
+    "fecha" DATE NOT NULL,
+    "id_estudiante" INTEGER,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_asistencia_id_estudiante__constraint" FOREIGN KEY ("id_estudiante") REFERENCES "estudiante" ("documento") ON DELETE CASCADE ON UPDATE CASCADE, CONSTRAINT  "FK_asistencia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+success!
+timestamp: 2024-02-29T20:14:22.543466
+CREATE TABLE "materia"(
+    "id_materia" SERIAL PRIMARY KEY,
+    "nombre" VARCHAR(512) NOT NULL,
+    "cod_salon" VARCHAR(512), CONSTRAINT  "FK_materia_cod_salon__constraint" FOREIGN KEY ("cod_salon") REFERENCES "salon" ("cod_salon") ON DELETE CASCADE ON UPDATE CASCADE
+);
+success!
+timestamp: 2024-03-01T16:42:14.425608
+CREATE TABLE "web2py_session_SAS"(
+    "id" SERIAL PRIMARY KEY,
+    "locked" CHAR(1),
+    "client_ip" VARCHAR(64),
+    "created_datetime" TIMESTAMP,
+    "modified_datetime" TIMESTAMP,
+    "unique_key" VARCHAR(64),
+    "session_data" BYTEA
+);
+success!
+timestamp: 2024-03-01T16:45:20.899090
+CREATE TABLE "cursos_extra"(
+    "id" SERIAL PRIMARY KEY,
+    "id_curso" VARCHAR(512),
+    "numero" INTEGER
+);
+timestamp: 2024-03-01T16:45:29.693690
+CREATE TABLE "cursos_extra"(
+    "id" SERIAL PRIMARY KEY,
+    "id_curso" VARCHAR(512),
+    "numero" INTEGER
+);
+timestamp: 2024-03-01T16:46:42.869091
+CREATE TABLE "cursos_extra"(
+    "id" SERIAL PRIMARY KEY,
+    "id_curso" VARCHAR(512),
+    "numero" INTEGER
+);
+timestamp: 2024-03-01T17:23:58.511431
+CREATE TABLE "cursos_extra"(
+    "id" SERIAL PRIMARY KEY,
+    "id_curso" VARCHAR(512),
+    "numero" INTEGER
+);
